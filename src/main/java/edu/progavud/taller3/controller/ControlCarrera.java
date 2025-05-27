@@ -20,9 +20,9 @@ public class ControlCarrera {
     public ControlCarrera() {
         competidores = new ArrayList<>();
         cVentana = new ControlVentana(this);
-        numeroCompetidores = cVentana.mostrarDigiteNumCompetidores();
-        distanciaCarrera = 100;//Cambiarlo desde ControlVentana :3
-        crearCompetidores();
+        numeroCompetidores = cVentana.mostrarDigiteNumCompetidores() + 1;
+        distanciaCarrera = 100;
+
     }
 
     public void crearCompetidores() { //este metodo se debe generalizar :3
@@ -74,7 +74,7 @@ public class ControlCarrera {
         }
         return mensaje;
     }
-    
+
     public String definirGanadorAbsoluto() {
         String mensajeVictoriasCompetidor = ""; //esta es la primera parte del mensaje :D
         ArrayList<Integer> indexGanadores = new ArrayList<>();
@@ -97,19 +97,19 @@ public class ControlCarrera {
             }
         } else {
             mensajeGanadorAbsoluto = "El ganador Absoluto es: " + competidores.get(indexGanadores.get(0)).getDatosCompetidor().getNombre();
-        } 
+        }
         return mensajeVictoriasCompetidor + "\n" + mensajeGanadorAbsoluto;
     }
 
     public void moverCompetidorLabel(CompetidorHilo competidor, int posAvanzada) {
         cVentana.moverCompetidor(competidores.indexOf(competidor), posAvanzada, distanciaCarrera);
     }
-    
+
     public String accidenteCompetidor() {
         competidores.get(0).accidente(); //Si en vez de 0, va un random de 0 hasta el size del array, se hace al azar para todos :D
         return "El competidor 1  se accidento"; //tambien, con el random, esto es para el label que esta en el panel
     }
-    
+
     public String impulsarCompetidor() {
         competidores.get(1).impulsar();
         return "El competidor 2 se impulso";

@@ -23,7 +23,7 @@ public class ControlVentana implements ActionListener {
     public ControlVentana(ControlCarrera cCarrera) {
         this.cCarrera = cCarrera;
         ventanaPrincipal = new VentanaPrincipal(this);
-        //ventanaPrincipal.cargarPanelCarrera(cCarrera.getNumeroCompetidores());
+        ventanaPrincipal.cargarPanelInicio();
     }
 
     public void asignarOyentesPanelInicio() {
@@ -45,7 +45,10 @@ public class ControlVentana implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
         if (comando.equals("INICIARCARRERA")) {
-
+            cCarrera.crearCompetidores();
+            ventanaPrincipal.cargarPanelCarrera(cCarrera.getNumeroCompetidores());
+            cCarrera.iniciarCarrera();
+            ventanaPrincipal.cargarPanelFinal(cCarrera.definirGanador());
         }
     }
 

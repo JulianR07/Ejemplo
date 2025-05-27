@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class VentanaPrincipal extends javax.swing.JFrame {
 
     private ControlVentana cVentana;
-    
+
     public VentanaPrincipal(ControlVentana cVentana) {
         this.cVentana = cVentana;
         initComponents();
@@ -22,7 +22,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setResizable(false);
         setVisible(true);
     }
-    
+
     public void cargarPanelInicio() {
         this.getContentPane().removeAll();
         panelCanvas = new PanelInicio();
@@ -32,8 +32,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         revalidate();
         repaint();
     }
-    
-    public void cargarPanelCarrera(int numJugadores){
+
+    public void cargarPanelCarrera(int numJugadores) {
         this.getContentPane().removeAll();
         panelCanvas = new PanelCarrera(numJugadores);
         setSize(panelCanvas.getPreferredSize());
@@ -45,8 +45,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         revalidate();
         repaint();
     }
-    
-    public void cargarPanelFinal(String mensajeGanador) { 
+
+    public void cargarPanelFinal(String mensajeGanador) {
         this.getContentPane().removeAll();
         panelCanvas = new PanelFinal();
         setSize(panelCanvas.getPreferredSize());
@@ -56,19 +56,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         revalidate();
         repaint();
     }
-    
-    
+
     public String mostrarDigiteNumCompetidores() {
-        return JOptionPane.showInputDialog(null, "Digite el numero de competidores que desea:",  JOptionPane.DEFAULT_OPTION);
+        return JOptionPane.showInputDialog(null, "Digite el numero Udistritalinosos que van a competir: ", JOptionPane.DEFAULT_OPTION);
     }
-    
+
     public String mostrarDigiteNomCompetidor() {
-        return JOptionPane.showInputDialog(null, "Digite el nombre del periquin que va a competir:",  JOptionPane.DEFAULT_OPTION);
+        return JOptionPane.showInputDialog(null, "Digite el nombre del Udistritalinoso que va a competir: ", JOptionPane.DEFAULT_OPTION);
     }
-    
+
     public void mostrarMensajeJOptionPane(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,15 +82,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panelCanvas.setPreferredSize(new java.awt.Dimension(1000, 600));
+
         javax.swing.GroupLayout panelCanvasLayout = new javax.swing.GroupLayout(panelCanvas);
         panelCanvas.setLayout(panelCanvasLayout);
         panelCanvasLayout.setHorizontalGroup(
             panelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
         panelCanvasLayout.setVerticalGroup(
             panelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 429, Short.MAX_VALUE)
+            .addGap(0, 650, Short.MAX_VALUE)
         );
 
         getContentPane().add(panelCanvas, java.awt.BorderLayout.CENTER);
