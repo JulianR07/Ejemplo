@@ -6,8 +6,6 @@ package edu.progavud.taller3.controller;
 
 import edu.progavud.taller3.model.Competidor;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -28,10 +26,10 @@ public class CompetidorHilo extends Thread {
     @Override
     public void run() {
         competidor.reiniciarPosicion();
-        rng = new Random();
         long tiempoInicio = System.currentTimeMillis();
-        while (competidor.getPosicion() < cCarrera.getMeta()) {
+        while (competidor.getPosicion() < cCarrera.getDistanciaCarrera()) {
             competidor.mover(1);
+            cCarrera.moverCompetidor(this, 1);
             try {
                 sleep(rng.nextInt(0, 250));
             } catch (InterruptedException ex) {
@@ -52,7 +50,8 @@ public class CompetidorHilo extends Thread {
     }
     
     public void impulsar() {
-        
+        competidor.mover(5);
+        cCarrera.moverCompetidor(this, 5);
     }
 
     public Competidor getDatosCompetidor() {

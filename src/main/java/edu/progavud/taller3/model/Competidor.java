@@ -8,7 +8,8 @@ package edu.progavud.taller3.model;
  *
  * @author Miguel
  */
-public class Competidor{
+public class Competidor {
+
     private String nombre;
     private int posicion;
     private long tiempoDeLlegada;
@@ -28,11 +29,11 @@ public class Competidor{
     public int getPosicion() {
         return posicion;
     }
-    
+
     public void mover(int distanciaMov) {
         posicion += distanciaMov;
     }
-    
+
     public void reiniciarPosicion() {
         posicion = 0;
     }
@@ -44,9 +45,13 @@ public class Competidor{
     public void setTiempoDeLlegada(long tiempoDeLlegada) {
         this.tiempoDeLlegada = tiempoDeLlegada;
     }
-    
+
+    public int getVictorias() {
+        return victorias;
+    }
+
     public void ganar() {
         victorias++;
     }
-  
+
 }
