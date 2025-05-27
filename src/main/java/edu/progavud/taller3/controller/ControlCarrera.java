@@ -101,8 +101,18 @@ public class ControlCarrera {
         return mensajeVictoriasCompetidor + "\n" + mensajeGanadorAbsoluto;
     }
 
-    public void moverCompetidor(CompetidorHilo competidor, int posAvanzada) {
+    public void moverCompetidorLabel(CompetidorHilo competidor, int posAvanzada) {
         cVentana.moverCompetidor(competidores.indexOf(competidor), posAvanzada, distanciaCarrera);
+    }
+    
+    public String accidenteCompetidor() {
+        competidores.get(0).accidente(); //Si en vez de 0, va un random de 0 hasta el size del array, se hace al azar para todos :D
+        return "El competidor 1  se accidento"; //tambien, con el random, esto es para el label que esta en el panel
+    }
+    
+    public String impulsarCompetidor() {
+        competidores.get(1).impulsar();
+        return "El competidor 2 se impulso";
     }
 
     public int getDistanciaCarrera() {

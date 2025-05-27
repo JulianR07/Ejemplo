@@ -29,7 +29,7 @@ public class CompetidorHilo extends Thread {
         long tiempoInicio = System.currentTimeMillis();
         while (competidor.getPosicion() < cCarrera.getDistanciaCarrera()) {
             competidor.mover(1);
-            cCarrera.moverCompetidor(this, 1);
+            cCarrera.moverCompetidorLabel(this, 1);
             try {
                 sleep(rng.nextInt(0, 250));
             } catch (InterruptedException ex) {
@@ -51,7 +51,7 @@ public class CompetidorHilo extends Thread {
     
     public void impulsar() {
         competidor.mover(5);
-        cCarrera.moverCompetidor(this, 5);
+        cCarrera.moverCompetidorLabel(this, 5);
     }
 
     public Competidor getDatosCompetidor() {
