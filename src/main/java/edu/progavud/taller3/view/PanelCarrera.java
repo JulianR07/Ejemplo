@@ -114,12 +114,18 @@ public class PanelCarrera extends javax.swing.JPanel {
         PanelBotones.setBackground(new java.awt.Color(15, 89, 45));
         PanelBotones.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 20));
 
+        btnAccidente1.setBackground(new java.awt.Color(210, 120, 70));
+        btnAccidente1.setForeground(new java.awt.Color(110, 70, 40));
         btnAccidente1.setText("ACCIDENTE1");
         PanelBotones.add(btnAccidente1);
 
+        btnImpulsar2.setBackground(new java.awt.Color(210, 120, 70));
+        btnImpulsar2.setForeground(new java.awt.Color(110, 70, 40));
         btnImpulsar2.setText("IMPULSAR2");
         PanelBotones.add(btnImpulsar2);
 
+        btnSalir.setBackground(new java.awt.Color(210, 120, 70));
+        btnSalir.setForeground(new java.awt.Color(110, 70, 40));
         btnSalir.setText("SALIR");
         btnSalir.setToolTipText("");
         PanelBotones.add(btnSalir);
