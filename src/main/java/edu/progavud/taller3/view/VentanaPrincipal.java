@@ -1,7 +1,9 @@
 package edu.progavud.taller3.view;
 
 import edu.progavud.taller3.controller.ControlVentana;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * @author Jorge Mendez
@@ -45,13 +47,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * permite cargar el PanelCarrera
      * @param numJugadores Recibe la cantidad de competidores actuales
      */
-    public void cargarPanelCarrera(int numJugadores) {
+    public void cargarPanelCarrera(int numJugadores, String nombreImagenFondo) {
         this.getContentPane().removeAll();
-        panelCanvas = new PanelCarrera(numJugadores);
+        panelCanvas = new PanelCarrera(numJugadores, nombreImagenFondo);
         setSize(panelCanvas.getSize());
         add(panelCanvas);
-        ((PanelCarrera) panelCanvas).cargarImagenFondo();
-        cVentana.crearImagenesCompetidores();
+        cVentana.cargarGifsCompetidores();
         ((PanelCarrera) panelCanvas).colocarCompetidores();
         cVentana.asignarOyentesPanelCarrera();
         revalidate();
@@ -93,6 +94,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public void mostrarMensajeJOptionPane(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje);
+    }
+    
+    public JFileChooser prepararFileChooserGifs() {
+        JFileChooser fileChooser = new JFileChooser("src/main/resources/Imagenes/GifsCompetidores");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos Gif", "gif")); //para que solo se vean archivos gif
+        return fileChooser;
+    }
+    
+    public JFileChooser prepararFileChooserImagenes() {
+        JFileChooser fileChooser = new JFileChooser("src/main/resources/Imagenes/Fondos");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos de Imagen (JPG, PNG)", "jpg", "png")); //para que solo se vean archivos de imagen
+        return fileChooser;
+    }
+    
+    public int mostrarMensajeIntentarOtraVezFileChooser(String mensaje) {
+        return JOptionPane.showConfirmDialog(null, mensaje, "Aviso", JOptionPane.YES_NO_OPTION);
     }
 
     /**

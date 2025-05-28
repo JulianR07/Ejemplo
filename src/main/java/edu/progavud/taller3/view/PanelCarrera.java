@@ -21,15 +21,15 @@ public class PanelCarrera extends javax.swing.JPanel {
      * modifica el tamaño del panel en funcion de la cantidad de competidores
      * y carga la imagen del fondo
      */
-    public PanelCarrera(int numCorredores) {
+    public PanelCarrera(int numCorredores, String urlImagenFondo) {
         initComponents();
         setSize(new java.awt.Dimension(1000, (150 * numCorredores) + 100));
         lblsCompetidores = new ArrayList<>();
-        cargarImagenFondo();
+        cargarImagenFondo(urlImagenFondo);
     }
     
-    public void cargarImagenFondo() {
-        ImageIcon originalIcon = new ImageIcon(getClass().getResource("/imagenes/FondoCarrera.jpg"));
+    public void cargarImagenFondo(String urlImagenFondo) {
+        ImageIcon originalIcon = new ImageIcon(getClass().getResource("/imagenes/Fondos/" + urlImagenFondo));
 
         Image scaledImage = originalIcon.getImage()
                 .getScaledInstance(1000, getSize().height - 100, Image.SCALE_SMOOTH);
@@ -40,8 +40,8 @@ public class PanelCarrera extends javax.swing.JPanel {
         repaint();
     }
 
-  public void crearImagenCompetidor(String nombreGif) {
-        ImageIcon gif = new ImageIcon(getClass().getResource("/imagenes/" + nombreGif));
+  public void crearGifCompetidor(String nombreGif) {
+        ImageIcon gif = new ImageIcon(getClass().getResource("/imagenes/GifsCompetidores/" + nombreGif));
 
         JLabel lblCompetidor = new javax.swing.JLabel(gif);
         lblsCompetidores.add(lblCompetidor);

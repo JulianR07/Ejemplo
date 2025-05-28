@@ -23,7 +23,8 @@ class ControlCarreraTest {
     @Test
     @DisplayName("Debería definir correctamente un ganador único")
     void testDefinirGanadorUnico() throws Exception {
-        ArrayList<CompetidorHilo> competidoresTest = new ArrayList<>();
+        ArrayList<Competidor> competidoresTest = new ArrayList<>();
+        ArrayList<CompetidorHilo> competidoresHilosTest = new ArrayList<>();
 
         Competidor comp1 = new Competidor("Competidor1");
         comp1.setTiempoDeLlegada(1500L); // 1.5 segundos
@@ -34,14 +35,22 @@ class ControlCarreraTest {
         Competidor comp3 = new Competidor("Competidor3");
         comp3.setTiempoDeLlegada(1800L); // 1.8 segundos
 
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp1));
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp2));
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp3));
+        competidoresTest.add(comp1);
+        competidoresTest.add(comp2);
+        competidoresTest.add(comp3);
 
-        // Inyectar los competidores usando reflection
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp1));
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp2));
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp3));
+
+        // Inyectar ambas listas usando reflection
+        Field competidoresField = ControlCarrera.class.getDeclaredField("competidores");
+        competidoresField.setAccessible(true);
+        competidoresField.set(controlCarrera, competidoresTest);
+
         Field competidoresHilosField = ControlCarrera.class.getDeclaredField("competidoresHilos");
         competidoresHilosField.setAccessible(true);
-        competidoresHilosField.set(controlCarrera, competidoresTest);
+        competidoresHilosField.set(controlCarrera, competidoresHilosTest);
 
         // Ejecutar el método definirGanador
         Method definirGanadorMethod = ControlCarrera.class.getDeclaredMethod("definirGanador");
@@ -63,7 +72,8 @@ class ControlCarreraTest {
     @Test
     @DisplayName("Debería manejar correctamente un empate entre competidores")
     void testDefinirGanadorConEmpate() throws Exception {
-        ArrayList<CompetidorHilo> competidoresTest = new ArrayList<>();
+        ArrayList<Competidor> competidoresTest = new ArrayList<>();
+        ArrayList<CompetidorHilo> competidoresHilosTest = new ArrayList<>();
 
         Competidor comp1 = new Competidor("CompetidorA");
         comp1.setTiempoDeLlegada(1000L);
@@ -74,14 +84,22 @@ class ControlCarreraTest {
         Competidor comp3 = new Competidor("CompetidorC");
         comp3.setTiempoDeLlegada(1500L);
 
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp1));
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp2));
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp3));
+        competidoresTest.add(comp1);
+        competidoresTest.add(comp2);
+        competidoresTest.add(comp3);
+
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp1));
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp2));
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp3));
 
         // Inyectar usando reflection
+        Field competidoresField = ControlCarrera.class.getDeclaredField("competidores");
+        competidoresField.setAccessible(true);
+        competidoresField.set(controlCarrera, competidoresTest);
+
         Field competidoresHilosField = ControlCarrera.class.getDeclaredField("competidoresHilos");
         competidoresHilosField.setAccessible(true);
-        competidoresHilosField.set(controlCarrera, competidoresTest);
+        competidoresHilosField.set(controlCarrera, competidoresHilosTest);
 
         // Ejecutar el método
         Method definirGanadorMethod = ControlCarrera.class.getDeclaredMethod("definirGanador");
@@ -105,7 +123,8 @@ class ControlCarreraTest {
     @Test
     @DisplayName("Debería definir correctamente el ganador absoluto")
     void testDefinirGanadorAbsoluto() throws Exception {
-        ArrayList<CompetidorHilo> competidoresTest = new ArrayList<>();
+        ArrayList<Competidor> competidoresTest = new ArrayList<>();
+        ArrayList<CompetidorHilo> competidoresHilosTest = new ArrayList<>();
 
         Competidor comp1 = new Competidor("Veterano");
         comp1.ganar(); // 1 victoria
@@ -118,14 +137,22 @@ class ControlCarreraTest {
         Competidor comp3 = new Competidor("Principiante");
         // 0 victorias
 
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp1));
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp2));
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp3));
+        competidoresTest.add(comp1);
+        competidoresTest.add(comp2);
+        competidoresTest.add(comp3);
+
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp1));
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp2));
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp3));
 
         // Inyectar usando reflection
+        Field competidoresField = ControlCarrera.class.getDeclaredField("competidores");
+        competidoresField.setAccessible(true);
+        competidoresField.set(controlCarrera, competidoresTest);
+
         Field competidoresHilosField = ControlCarrera.class.getDeclaredField("competidoresHilos");
         competidoresHilosField.setAccessible(true);
-        competidoresHilosField.set(controlCarrera, competidoresTest);
+        competidoresHilosField.set(controlCarrera, competidoresHilosTest);
 
         // Ejecutar el método
         Method definirGanadorAbsolutoMethod = ControlCarrera.class.getDeclaredMethod("definirGanadorAbsoluto");
@@ -145,7 +172,8 @@ class ControlCarreraTest {
     @Test
     @DisplayName("Debería manejar empate en ganador absoluto")
     void testDefinirGanadorAbsolutoConEmpate() throws Exception {
-        ArrayList<CompetidorHilo> competidoresTest = new ArrayList<>();
+        ArrayList<Competidor> competidoresTest = new ArrayList<>();
+        ArrayList<CompetidorHilo> competidoresHilosTest = new ArrayList<>();
 
         Competidor comp1 = new Competidor("EmpateA");
         comp1.ganar(); // 1 victoria
@@ -158,14 +186,22 @@ class ControlCarreraTest {
         Competidor comp3 = new Competidor("Perdedor");
         comp3.ganar(); // 1 victoria solamente
 
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp1));
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp2));
-        competidoresTest.add(new CompetidorHilo(controlCarrera, comp3));
+        competidoresTest.add(comp1);
+        competidoresTest.add(comp2);
+        competidoresTest.add(comp3);
+
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp1));
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp2));
+        competidoresHilosTest.add(new CompetidorHilo(controlCarrera, comp3));
 
         // Inyectar usando reflection
+        Field competidoresField = ControlCarrera.class.getDeclaredField("competidores");
+        competidoresField.setAccessible(true);
+        competidoresField.set(controlCarrera, competidoresTest);
+
         Field competidoresHilosField = ControlCarrera.class.getDeclaredField("competidoresHilos");
         competidoresHilosField.setAccessible(true);
-        competidoresHilosField.set(controlCarrera, competidoresTest);
+        competidoresHilosField.set(controlCarrera, competidoresHilosTest);
 
         // Ejecutar el método
         Method definirGanadorAbsolutoMethod = ControlCarrera.class.getDeclaredMethod("definirGanadorAbsoluto");

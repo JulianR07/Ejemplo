@@ -32,6 +32,7 @@ public class ControlCarrera {
         numeroCompetidores = cVentana.mostrarDigiteNumCompetidores() + 1;
         distanciaCarrera = 100;
         crearCompetidores();
+        cVentana.definirRecursosCarrera();
     }
     /**
      * Crea a usain bolt por defecto y ademas
@@ -70,7 +71,7 @@ public class ControlCarrera {
         for (CompetidorHilo competidor : competidoresHilos) {
             competidor.start();
         }
-        Timer timer = new Timer(100, null);
+        Timer timer = new Timer(50, null);
         timer.addActionListener(e -> {
             boolean todosTerminaron = true;
             for (CompetidorHilo competidorHilo : competidoresHilos) {
@@ -94,27 +95,27 @@ public class ControlCarrera {
     public String definirGanador() {
         String mensaje = null;
         ArrayList<Integer> indexGanadores = new ArrayList<>();
-        long mejorTiempo = competidoresHilos.get(0).getDatosCompetidor().getTiempoDeLlegada();
-        for (CompetidorHilo competidor : competidoresHilos) {
-            if (competidor.getDatosCompetidor().getTiempoDeLlegada() < mejorTiempo) {
-                mejorTiempo = competidor.getDatosCompetidor().getTiempoDeLlegada();
+        long mejorTiempo = competidores.get(0).getTiempoDeLlegada();
+        for (Competidor competidor : competidores) {
+            if (competidor.getTiempoDeLlegada() < mejorTiempo) {
+                mejorTiempo = competidor.getTiempoDeLlegada();
                 indexGanadores.clear();
-                indexGanadores.add(competidoresHilos.indexOf(competidor));
-            } else if (competidor.getDatosCompetidor().getTiempoDeLlegada() == mejorTiempo) {
-                indexGanadores.add(competidoresHilos.indexOf(competidor));
+                indexGanadores.add(competidores.indexOf(competidor));
+            } else if (competidor.getTiempoDeLlegada() == mejorTiempo) {
+                indexGanadores.add(competidores.indexOf(competidor));
             }
         }
         if (indexGanadores.size() > 1) {
             mensaje = "Hubo un empate entre:\n";
             for (int index : indexGanadores) {
-                mensaje += competidoresHilos.get(index).getDatosCompetidor().getNombre() + "\n";
-                competidoresHilos.get(index).getDatosCompetidor().ganar();
+                mensaje += competidores.get(index).getNombre() + "\n";
+                competidores.get(index).ganar();
             }
-            mensaje += "Con un tiempo de: " + competidoresHilos.get(indexGanadores.get(0)).getDatosCompetidor().getTiempoDeLlegada();
+            mensaje += "Con un tiempo de: " + competidores.get(indexGanadores.get(0)).getTiempoDeLlegada();
         } else {
-            mensaje = "El ganador es: " + competidoresHilos.get(indexGanadores.get(0)).getDatosCompetidor().getNombre()
-                    + "\nCon un tiempo de: " + ((float) (competidoresHilos.get(indexGanadores.get(0)).getDatosCompetidor().getTiempoDeLlegada()) / 1000);
-            competidoresHilos.get(indexGanadores.get(0)).getDatosCompetidor().ganar();
+            mensaje = "El ganador es: " + competidores.get(indexGanadores.get(0)).getNombre()
+                    + "\nCon un tiempo de: " + ((float) (competidores.get(indexGanadores.get(0)).getTiempoDeLlegada()) / 1000);
+            competidores.get(indexGanadores.get(0)).ganar();
         }
         return mensaje;
     }
@@ -126,24 +127,24 @@ public class ControlCarrera {
         String mensajeVictoriasCompetidor = ""; //esta es la primera parte del mensaje :D
         ArrayList<Integer> indexGanadores = new ArrayList<>();
         int mayorNumVictorias = 0;
-        for (CompetidorHilo competidor : competidoresHilos) {
-            mensajeVictoriasCompetidor += competidor.getDatosCompetidor().getNombre() + ", Victorias: " + competidor.getDatosCompetidor().getVictorias() + "\n";
-            if (competidor.getDatosCompetidor().getVictorias() > mayorNumVictorias) {
-                mayorNumVictorias = competidor.getDatosCompetidor().getVictorias();
+        for (Competidor competidor : competidores) {
+            mensajeVictoriasCompetidor += competidor.getNombre() + ", Victorias: " + competidor.getVictorias() + "\n";
+            if (competidor.getVictorias() > mayorNumVictorias) {
+                mayorNumVictorias = competidor.getVictorias();
                 indexGanadores.clear();
-                indexGanadores.add(competidoresHilos.indexOf(competidor));
-            } else if (competidor.getDatosCompetidor().getVictorias()== mayorNumVictorias) {
-                indexGanadores.add(competidoresHilos.indexOf(competidor));
+                indexGanadores.add(competidores.indexOf(competidor));
+            } else if (competidor.getVictorias()== mayorNumVictorias) {
+                indexGanadores.add(competidores.indexOf(competidor));
             }
         }
         String mensajeGanadorAbsoluto = null;
         if (indexGanadores.size() > 1) {
             mensajeGanadorAbsoluto = "Hubo un empate entre:\n";
             for (int index : indexGanadores) {
-                mensajeGanadorAbsoluto += competidoresHilos.get(index).getDatosCompetidor().getNombre() + "\n";
+                mensajeGanadorAbsoluto += competidores.get(index).getNombre() + "\n";
             }
         } else {
-            mensajeGanadorAbsoluto = "El ganador Absoluto es: " + competidoresHilos.get(indexGanadores.get(0)).getDatosCompetidor().getNombre();
+            mensajeGanadorAbsoluto = "El ganador Absoluto es: " + competidores.get(indexGanadores.get(0)).getNombre();
         }
         return mensajeVictoriasCompetidor + "\n" + mensajeGanadorAbsoluto;
     }
@@ -186,6 +187,10 @@ public class ControlCarrera {
 
     public ControlVentana getcVentana() {
         return cVentana;
+    }
+    
+    public String getNombreCompetidor(int indexCompetidor) {
+        return competidores.get(indexCompetidor).getNombre();
     }
     /**
      * Método que termina el programa durante la carrera o 
