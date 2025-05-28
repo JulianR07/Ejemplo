@@ -1,17 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package edu.progavud.taller3.view;
 
 /**
- *
- * @author Miguel
+ * @author Jorge Mendez
+ * @author Julian Roldan
+ * @author Jose Cucanchon
+ * @version 1.0
+ * 
+ * Clase donde se visualiza el panel final, mostrando
+ * al ganador de la ultima carrera
  */
 public class PanelFinal extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelFinal
+     * Constructor del PanelFinal, inicializa sus atributos
      */
     public PanelFinal() {
         initComponents();

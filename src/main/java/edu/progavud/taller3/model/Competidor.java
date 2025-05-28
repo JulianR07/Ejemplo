@@ -1,12 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package edu.progavud.taller3.model;
 
 /**
- *
- * @author Miguel
+ * @author Jorge Mendez
+ * @author Julian Roldan
+ * @author Jose Cucanchon
+ * @version 1.0
+ * 
+ * Clase que representa a un competidor del aplicativo
  */
 public class Competidor {
 
@@ -15,6 +15,10 @@ public class Competidor {
     private long tiempoDeLlegada;
     private int victorias;
 
+    /**
+     * Constructor del Competidor, inicializa sus atributos
+     * @param nombre Recibe el nombre ingresado por el usuario
+     */
     public Competidor(String nombre) {
         this.nombre = nombre;
         posicion = 0;
@@ -29,7 +33,10 @@ public class Competidor {
     public int getPosicion() {
         return posicion;
     }
-
+    /**
+     * Actualiza la posicion actual del jugador
+     * @param distanciaMov Recibe la cantidad de distancia recorrida
+     */
     public void mover(int distanciaMov) {
         posicion += distanciaMov;
     }

@@ -1,20 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package edu.progavud.taller3.view;
 
 import edu.progavud.taller3.controller.ControlVentana;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Miguel
+ * @author Jorge Mendez
+ * @author Julian Roldan
+ * @author Jose Cucanchon
+ * @version 1.0
+ * 
+ * Clase JFrame donde van a estar contenidos todos los paneles
+ * siendo estos cambiados a traves de sustitucion de liskov
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
     private ControlVentana cVentana;
-
+    /**
+     * Constructor de la VentanaPrincipal, inicializa sus atributos
+     * @param cVentana Recibe el parametro que permite la comunicacion con el ControlVentana
+     */
     public VentanaPrincipal(ControlVentana cVentana) {
         this.cVentana = cVentana;
         initComponents();
@@ -22,7 +26,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setResizable(false);
         setVisible(true);
     }
-
+    /**
+     * Método que a traves de sustitucion de liskov
+     * permite cargar el PanelInicio
+     */
     public void cargarPanelInicio() {
         this.getContentPane().removeAll();
         panelCanvas = new PanelInicio();
@@ -32,7 +39,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         revalidate();
         repaint();
     }
-
+    
+    /**
+     * Método que a traves de sustitucion de liskov
+     * permite cargar el PanelCarrera
+     * @param numJugadores Recibe la cantidad de competidores actuales
+     */
     public void cargarPanelCarrera(int numJugadores) {
         this.getContentPane().removeAll();
         panelCanvas = new PanelCarrera(numJugadores);
@@ -45,7 +57,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         revalidate();
         repaint();
     }
-
+    /**
+     * Método que a traves de sustitucion de liskov
+     * permite cargar el PanelInicio
+     * @param mensajeGanador Recibe el mensaje que indica quien fue el
+     *                       ganador de la ultima carrera
+     */
     public void cargarPanelFinal(String mensajeGanador) {
         this.getContentPane().removeAll();
         panelCanvas = new PanelFinal();
@@ -56,15 +73,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         revalidate();
         repaint();
     }
-
+    /**
+     * Muestra un input dialog con el fin de ingresar el numero de competidores
+     * @return Devuelve un String que será casteado como un int eventualmente
+     */
     public String mostrarDigiteNumCompetidores() {
         return JOptionPane.showInputDialog(null, "Digite el numero Udistritalinosos que van a competir: ", JOptionPane.DEFAULT_OPTION);
     }
-
+    /**
+     * Muestra un input dialog con el fin de ingresar el nombre de los competidores
+     * @return Devuelve un String que contiene el nombrede los competidores
+     */
     public String mostrarDigiteNomCompetidor() {
         return JOptionPane.showInputDialog(null, "Digite el nombre del Udistritalinoso que va a competir: ", JOptionPane.DEFAULT_OPTION);
     }
-
+    /**
+     * Muestra un message dialog para hacerle saber al usuario de cualquier situacion
+     * @param mensaje Recibe el mensaje que se va a mostrar
+     */
     public void mostrarMensajeJOptionPane(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje);
     }

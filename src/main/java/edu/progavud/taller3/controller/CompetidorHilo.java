@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package edu.progavud.taller3.controller;
 
 import edu.progavud.taller3.model.Competidor;
@@ -9,8 +5,13 @@ import java.util.Random;
 import java.util.concurrent.locks.LockSupport;
 
 /**
- *
- * @author Miguel
+ * @author Jorge Mendez
+ * @author Julian Roldan
+ * @author Jose Cucanchon
+ * @version 1.0
+ * 
+ * Clase donde esta el metodo run() correspondiente
+ * a los hilos de ejecucion del programa
  */
 public class CompetidorHilo extends Thread {
 
@@ -18,14 +19,24 @@ public class CompetidorHilo extends Thread {
     private ControlCarrera cCarrera;
     private boolean isPausado;
     private Random rng;
-
+    /**
+     * Constructor de la clase CompetidorHilo
+     * @param cCarrera Recibe el parametro que permite la comunicacion con ControlCarrera
+     * @param competidor Recibe un competidor que respresentará un hilo
+     */
     public CompetidorHilo(ControlCarrera cCarrera, Competidor competidor) {
         this.cCarrera = cCarrera;
         this.competidor = competidor;
         rng = new Random();
         isPausado = false;
     }
-
+    
+    /**
+     * Método run() que le permite a los competidores moverse 1 posicion
+     * y posterior a esto dormir una cantidad aleatoria de tiempo, eventualmente
+     * cuando recorran la distancia total de la carrera el tiempo de llegada se almacenta
+     * en un atributo de cada competidor respectivo
+     */
     @Override
     public void run() {
             competidor.reiniciarPosicion();
@@ -39,21 +50,27 @@ public class CompetidorHilo extends Thread {
                 try {
                     sleep(rng.nextInt(0, 250));
                 } catch (InterruptedException ex) {
-                    System.out.println("Soy el metodo run, algo paso");
+                    cCarrera.getcVentana().mostrarMensaje("Soy el metodo run, algo paso");
                 }
-                System.out.println("El competidor: " + competidor.getNombre() + " Se ha movido, su pos actual es: " + competidor.getPosicion());
+                // todavia no lo quité por si depronto te sirve :3 System.out.println("El competidor: " + competidor.getNombre() + " Se ha movido, su pos actual es: " + competidor.getPosicion());
             }
             competidor.setTiempoDeLlegada(System.currentTimeMillis() - tiempoInicio);       
     }
-
+    /**
+     * Método que duerme un hilo aleatorio una cantidad
+     * aleatoria de tiempo
+     */
     public void accidente() {
         try {
             sleep(rng.nextInt(0, 250));
         } catch (InterruptedException ex) {
-            System.out.println("Soy el metodo accidente, algo paso");
+            cCarrera.getcVentana().mostrarMensaje("Soy el metodo accidente, algo paso");
         }
     }
-
+    /**
+     * Método que impulsa 5 posiciones a un 
+     * competidor aleatorio
+     */
     public void impulsar() {
         competidor.mover(5);
         cCarrera.moverCompetidorLabel(this, 5);

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package edu.progavud.taller3.view;
 
 import java.awt.Image;
@@ -11,13 +7,19 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
 /**
- *
- * @author Miguel
+ * @author Jorge Mendez
+ * @author Julian Roldan
+ * @author Jose Cucanchon
+ * @version 1.0
+ * 
+ * Clase donde se visualiza la carrera durante la ejecucion del aplicativo
  */
 public class PanelCarrera extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelInicio
+     * Constructor del PanelCarrera, inicializa sus atributos
+     * modifica el tamaño del panel en funcion de la cantidad de competidores
+     * y carga la imagen del fondo
      */
     public PanelCarrera(int numCorredores) {
         initComponents();
@@ -25,11 +27,10 @@ public class PanelCarrera extends javax.swing.JPanel {
         lblsCompetidores = new ArrayList<>();
         cargarImagenFondo();
     }
-
+    
     public void cargarImagenFondo() {
         ImageIcon originalIcon = new ImageIcon(getClass().getResource("/imagenes/super_mario_bros_1_1_wallpaper_hd_flat_by_wougie89_d6toae7-pre.jpg"));
 
-        //Escala la imagen a 150×150 píxeles, así que se puede cambiar como quieran :D
         Image scaledImage = originalIcon.getImage()
                 .getScaledInstance(750, getSize().height - 100, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -40,30 +41,36 @@ public class PanelCarrera extends javax.swing.JPanel {
     }
 
     public void crearImagenCompetidor(String nombreImagen) {
-        //Carga la imagen con el nombre del archivo, lo dejo así para despues tin ponerlo como metodo del MVC y etc :D
         ImageIcon originalIcon = new ImageIcon(getClass().getResource("/imagenes/" + nombreImagen));
 
-        //Escala la imagen a 150×150 píxeles, así que se puede cambiar como quieran :D
         Image scaledImage = originalIcon.getImage()
                 .getScaledInstance(150, 150, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         JLabel lblCompetidor = new javax.swing.JLabel(scaledIcon);
         lblsCompetidores.add(lblCompetidor);
-        System.out.println("Se añadio un competidor");
     }
-
+    /**
+     * Método que va agregando competidores al LayeredPane,
+     * este los va colocando uno debajo del otro aprovechando que
+     * cada imagen tiene un tamaño ya definido
+     */
     public void colocarCompetidores() {
         int nextY = getHeight() - 250;
         for (int i = 0; i < lblsCompetidores.size(); i++) {
-            elementosCarrera.add(lblsCompetidores.get(i), 0); //asi queda de primeritas :D
-            lblsCompetidores.get(i).setBounds(0, nextY, 150, 150); //Si cambiaron tamaño de la imagen lo hacen aca tambien por favor >:(
+            elementosCarrera.add(lblsCompetidores.get(i), 0);
+            lblsCompetidores.get(i).setBounds(0, nextY, 150, 150);
             nextY -= 150;
         }
         revalidate();
         repaint();
     }
-
+    /**
+     * Metodo que permite reposicionar los Labels simulando el movimiento
+     * @param indexCompetidor Recibe el identificador del competidor que va a moverse
+     * @param posicionesAvanzadas Recibe la cantidad de posiciones que el competidor se va a desplazar
+     * @param distanciaCarrera Recibe la distancia total de la carrera
+     */
     public void moverCompetidor(int indexCompetidor, int posicionesAvanzadas, int distanciaCarrera) {
         SwingUtilities.invokeLater(() -> {
             JLabel lbl = lblsCompetidores.get(indexCompetidor);
@@ -86,7 +93,6 @@ public class PanelCarrera extends javax.swing.JPanel {
 
             // mover y repintar
             lbl.setLocation(nuevaPosX, posYActual);
-            System.out.println("el label se movio, nueva ubicacion: " + lbl.getLocation());
             repaint();
         });
     }

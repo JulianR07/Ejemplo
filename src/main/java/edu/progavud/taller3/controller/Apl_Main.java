@@ -1,14 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package edu.progavud.taller3.controller;
 
 /**
- *
- * @author Miguel
+ * @author Jorge Mendez
+ * @author Julian Roldan
+ * @author Jose Cucanchon
+ * @version 1.0
+ * 
+ * Clase launcher que inicializa el programa
  */
 public class Apl_Main {
+    /**
+     * Este es el metodo que se encarga de iniciar la ejecucion del programa.
+     * @param args es un arreglo con los parametros que reciba por consola
+     */
     public static void main(String[] args) {
         new ControlCarrera();
     }
