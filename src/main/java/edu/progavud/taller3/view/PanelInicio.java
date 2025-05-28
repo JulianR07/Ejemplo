@@ -35,7 +35,7 @@ public class PanelInicio extends javax.swing.JPanel {
         lblTitulo.setBackground(new java.awt.Color(255, 255, 255));
         lblTitulo.setFont(new java.awt.Font("Serif", 2, 24)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setText("LA UDISTRITALINOSA CARRERA DEL AMAZONAS");
+        lblTitulo.setText("LA UDISTRITALINOSO CARRERA DEL AMAZONAS");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/UdistritalinosoCarrera .jpg"))); // NOI18N
 
