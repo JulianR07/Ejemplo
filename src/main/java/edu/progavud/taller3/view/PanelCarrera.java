@@ -23,20 +23,20 @@ public class PanelCarrera extends javax.swing.JPanel {
      */
     public PanelCarrera(int numCorredores) {
         initComponents();
-        setSize(new java.awt.Dimension(750, (150 * numCorredores) + 100));
+        setSize(new java.awt.Dimension(1000, (150 * numCorredores) + 100));
         lblsCompetidores = new ArrayList<>();
         cargarImagenFondo();
     }
     
     public void cargarImagenFondo() {
-        ImageIcon originalIcon = new ImageIcon(getClass().getResource("/imagenes/super_mario_bros_1_1_wallpaper_hd_flat_by_wougie89_d6toae7-pre.jpg"));
+        ImageIcon originalIcon = new ImageIcon(getClass().getResource("/imagenes/FondoCarrera.jpg"));
 
         Image scaledImage = originalIcon.getImage()
-                .getScaledInstance(750, getSize().height - 100, Image.SCALE_SMOOTH);
+                .getScaledInstance(1000, getSize().height - 100, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         lblImagen.setIcon(scaledIcon);
-        lblImagen.setBounds(0, 0, 750, getSize().height - 100);
+        lblImagen.setBounds(0, 0, 1000, getSize().height - 100);
         repaint();
     }
 
@@ -75,7 +75,7 @@ public class PanelCarrera extends javax.swing.JPanel {
             int posYActual = lbl.getY();
 
             // ancho máximo de desplazamiento en píxeles
-            int posXMax = 750 - lbl.getWidth();
+            int posXMax = 1000 - lbl.getWidth();
 
             // cuántos píxeles vale cada “posición”
             double pixelesPorPosicion = (double) posXMax / distanciaCarrera;
@@ -113,7 +113,7 @@ public class PanelCarrera extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(750, 429));
         setLayout(new java.awt.BorderLayout());
 
-        PanelBotones.setBackground(new java.awt.Color(15, 89, 45));
+        PanelBotones.setBackground(new java.awt.Color(74, 111, 69));
         PanelBotones.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 20));
 
         btnAccidente1.setBackground(new java.awt.Color(210, 120, 70));

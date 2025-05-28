@@ -173,7 +173,7 @@ public class ControlCarrera {
         Random rng = new Random();
         int competidorAfectado = rng.nextInt(0, competidores.size());
         competidoresHilos.get(competidorAfectado).impulsar();
-        return "El competidor: " + (competidorAfectado + 1) +"se impulso";
+        return "El competidor: " + (competidorAfectado + 1) +" se impulso";
     }
 
     public int getDistanciaCarrera() {

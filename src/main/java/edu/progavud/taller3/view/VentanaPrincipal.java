@@ -108,7 +108,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelCanvas.setBackground(new java.awt.Color(15, 89, 45));
+        panelCanvas.setBackground(new java.awt.Color(74, 111, 69));
         panelCanvas.setPreferredSize(new java.awt.Dimension(1000, 600));
 
         javax.swing.GroupLayout panelCanvasLayout = new javax.swing.GroupLayout(panelCanvas);
@@ -119,7 +119,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         panelCanvasLayout.setVerticalGroup(
             panelCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         getContentPane().add(panelCanvas, java.awt.BorderLayout.CENTER);
