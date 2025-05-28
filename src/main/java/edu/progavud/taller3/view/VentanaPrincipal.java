@@ -52,10 +52,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setSize(panelCanvas.getPreferredSize());
         ((PanelFinal) panelCanvas).txtaGanador.setText(mensajeGanador);
         add(panelCanvas);
-        cVentana.asignarOyentesPanelFinal();
+        cVentana.asignarOyentesPanelCarrera();
         revalidate();
         repaint();
-        
     }
 
     public String mostrarDigiteNumCompetidores() {
@@ -83,6 +82,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panelCanvas.setBackground(new java.awt.Color(15, 89, 45));
         panelCanvas.setPreferredSize(new java.awt.Dimension(1000, 600));
 
         javax.swing.GroupLayout panelCanvasLayout = new javax.swing.GroupLayout(panelCanvas);
