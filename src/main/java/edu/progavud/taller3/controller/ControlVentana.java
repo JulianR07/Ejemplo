@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package edu.progavud.taller3.controller;
 
 import edu.progavud.taller3.view.PanelCarrera;
@@ -10,6 +6,7 @@ import edu.progavud.taller3.view.PanelInicio;
 import edu.progavud.taller3.view.VentanaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -45,10 +42,10 @@ public class ControlVentana implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
         if (comando.equals("INICIARCARRERA")) {
-            cCarrera.crearCompetidores();
             ventanaPrincipal.cargarPanelCarrera(cCarrera.getNumeroCompetidores());
-            cCarrera.iniciarCarrera();
-            ventanaPrincipal.cargarPanelFinal(cCarrera.definirGanador());
+            SwingUtilities.invokeLater(() -> {
+                cCarrera.iniciarCarrera();
+            });
         }
     }
 
@@ -82,6 +79,10 @@ public class ControlVentana implements ActionListener {
         }
     }
 
+    public void mostrarGanador(String mensaje) {
+        ventanaPrincipal.cargarPanelFinal(mensaje);
+    }
+
     public void moverCompetidor(int indexCompetidor, int cantidadAvanzada, int distanciaCarrera) {
         ((PanelCarrera) ventanaPrincipal.panelCanvas).moverCompetidor(indexCompetidor, cantidadAvanzada, distanciaCarrera);
     }
@@ -89,5 +90,4 @@ public class ControlVentana implements ActionListener {
     public void mostrarMensaje(String mensaje) {
         ventanaPrincipal.mostrarMensajeJOptionPane(mensaje);
     }
-
 }

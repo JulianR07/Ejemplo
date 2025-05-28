@@ -36,7 +36,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public void cargarPanelCarrera(int numJugadores) {
         this.getContentPane().removeAll();
         panelCanvas = new PanelCarrera(numJugadores);
-        setSize(panelCanvas.getPreferredSize());
+        setSize(panelCanvas.getSize());
         add(panelCanvas);
         ((PanelCarrera) panelCanvas).cargarImagenFondo();
         cVentana.crearImagenesCompetidores();
@@ -52,7 +52,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setSize(panelCanvas.getPreferredSize());
         ((PanelFinal) panelCanvas).txtaGanador.setText(mensajeGanador);
         add(panelCanvas);
-        cVentana.asignarOyentesPanelCarrera();
+        cVentana.asignarOyentesPanelFinal();
         revalidate();
         repaint();
     }

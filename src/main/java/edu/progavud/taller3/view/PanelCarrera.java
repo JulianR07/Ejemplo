@@ -4,11 +4,11 @@
  */
 package edu.progavud.taller3.view;
 
-import java.awt.Dimension;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -21,7 +21,7 @@ public class PanelCarrera extends javax.swing.JPanel {
      */
     public PanelCarrera(int numCorredores) {
         initComponents();
-        setPreferredSize(new java.awt.Dimension(750, (150 * numCorredores) + 63));
+        setSize(new java.awt.Dimension(750, (150 * numCorredores) + 100));
         lblsCompetidores = new ArrayList<>();
         cargarImagenFondo();
     }
@@ -31,11 +31,11 @@ public class PanelCarrera extends javax.swing.JPanel {
 
         //Escala la imagen a 150×150 píxeles, así que se puede cambiar como quieran :D
         Image scaledImage = originalIcon.getImage()
-                .getScaledInstance(750, getPreferredSize().height - 63, Image.SCALE_SMOOTH);
+                .getScaledInstance(750, getSize().height - 100, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         lblImagen.setIcon(scaledIcon);
-        lblImagen.setBounds(0, 0, 750, getHeight() - 63);
+        lblImagen.setBounds(0, 0, 750, getSize().height - 100);
         repaint();
     }
 
@@ -54,7 +54,7 @@ public class PanelCarrera extends javax.swing.JPanel {
     }
 
     public void colocarCompetidores() {
-        int nextY = elementosCarrera.getHeight() - 150;
+        int nextY = getHeight() - 250;
         for (int i = 0; i < lblsCompetidores.size(); i++) {
             elementosCarrera.add(lblsCompetidores.get(i), 0); //asi queda de primeritas :D
             lblsCompetidores.get(i).setBounds(0, nextY, 150, 150); //Si cambiaron tamaño de la imagen lo hacen aca tambien por favor >:(
@@ -64,28 +64,31 @@ public class PanelCarrera extends javax.swing.JPanel {
         repaint();
     }
 
-    public void moverCompetidor(int indexCompetidor, int posicionesAvanzadas, int distanciaCarrera) {     
-        JLabel lbl = lblsCompetidores.get(indexCompetidor);
-        
-        int posXActual = lbl.getX();
-        int posYActual = lbl.getY();
+    public void moverCompetidor(int indexCompetidor, int posicionesAvanzadas, int distanciaCarrera) {
+        SwingUtilities.invokeLater(() -> {
+            JLabel lbl = lblsCompetidores.get(indexCompetidor);
 
-        // ancho máximo de desplazamiento en píxeles
-        int posXMax = elementosCarrera.getWidth() - lbl.getWidth();
-        
-        // cuántos píxeles vale cada “posición”
-        double pixelesPorPosicion = (double) posXMax / distanciaCarrera;
+            int posXActual = lbl.getX();
+            int posYActual = lbl.getY();
 
-        // cálculo del desplazamiento en pixeles según posicionesAvanzadas
-        int desplazamiento = (int) Math.round(posicionesAvanzadas * pixelesPorPosicion);
+            // ancho máximo de desplazamiento en píxeles
+            int posXMax = 750 - lbl.getWidth();
 
-        // nueva X, acotada entre 0 y posXMax
-        int nuevaPosX = Math.max(0,
-                Math.min(posXActual + desplazamiento, posXMax));
+            // cuántos píxeles vale cada “posición”
+            double pixelesPorPosicion = (double) posXMax / distanciaCarrera;
 
-        // mover y repintar
-        lbl.setLocation(nuevaPosX, posYActual);
-        repaint();
+            // cálculo del desplazamiento en pixeles según posicionesAvanzadas
+            int desplazamiento = (int) Math.round(posicionesAvanzadas * pixelesPorPosicion);
+
+            // nueva X, acotada entre 0 y posXMax
+            int nuevaPosX = Math.max(0,
+                    Math.min(posXActual + desplazamiento, posXMax));
+
+            // mover y repintar
+            lbl.setLocation(nuevaPosX, posYActual);
+            System.out.println("el label se movio, nueva ubicacion: " + lbl.getLocation());
+            repaint();
+        });
     }
 
     /**

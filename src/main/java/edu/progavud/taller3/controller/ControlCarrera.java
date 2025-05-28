@@ -5,6 +5,7 @@
 package edu.progavud.taller3.controller;
 
 import java.util.ArrayList;
+import javax.swing.Timer;
 
 /**
  *
@@ -22,6 +23,7 @@ public class ControlCarrera {
         cVentana = new ControlVentana(this);
         numeroCompetidores = cVentana.mostrarDigiteNumCompetidores() + 1;
         distanciaCarrera = 100;
+        crearCompetidores();
 
     }
 
@@ -38,13 +40,21 @@ public class ControlCarrera {
         for (CompetidorHilo competidor : competidores) {
             competidor.start();
         }
-        for (CompetidorHilo competidor : competidores) {
-            try {
-                competidor.join();
-            } catch (InterruptedException ex) {
-                cVentana.mostrarMensaje("Hubo un error inesperado con el hilo");
+        Timer timer = new Timer(100, null);
+        timer.addActionListener(e -> {
+            boolean todosTerminaron = true;
+            for (CompetidorHilo competidor : competidores) {
+                if (competidor.isAlive()) {
+                    todosTerminaron = false;
+                    break;
+                }
             }
-        }
+            if (todosTerminaron) {
+                timer.stop();
+                cVentana.mostrarGanador(definirGanador());
+            }
+        });
+        timer.start();
     }
 
     public String definirGanador() {

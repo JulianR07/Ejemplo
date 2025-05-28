@@ -1,9 +1,10 @@
-edu\progavud\taller3\controller\ControlCarrera.class
-edu\progavud\taller3\view\PanelFinal.class
-edu\progavud\taller3\controller\ControlVentana.class
 edu\progavud\taller3\view\VentanaPrincipal.class
 edu\progavud\taller3\model\Competidor.class
-edu\progavud\taller3\controller\CompetidorHilo.class
+edu\progavud\taller3\view\PanelFinal$1.class
 edu\progavud\taller3\view\PanelInicio.class
 edu\progavud\taller3\controller\Apl_Main.class
 edu\progavud\taller3\view\PanelCarrera.class
+edu\progavud\taller3\controller\ControlCarrera.class
+edu\progavud\taller3\view\PanelFinal.class
+edu\progavud\taller3\controller\ControlVentana.class
+edu\progavud\taller3\controller\CompetidorHilo.class
