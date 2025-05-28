@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.progavud.taller3.controller.ControlCarreraTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.729 s - in edu.progavud.taller3.controller.ControlCarreraTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.8 s - in edu.progavud.taller3.controller.ControlCarreraTest
