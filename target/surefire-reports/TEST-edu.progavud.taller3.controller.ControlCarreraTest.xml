@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.progavud.taller3.controller.ControlCarreraTest" time="49.573" tests="7" errors="0" skipped="0" failures="0">
+=======
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.progavud.taller3.controller.ControlCarreraTest" time="16.8" tests="7" errors="0" skipped="0" failures="0">
+>>>>>>> a74fb1ab0db443951547a1d47b0bf8e9ad7b8fbe
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,8 +19,13 @@
     <property name="java.vm.specification.version" value="21"/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+<<<<<<< HEAD
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
     <property name="sun.java.command" value="C:\Users\Miguel\AppData\Local\Temp\surefire4276038393568106439\surefirebooter-20250528181243392_3.jar C:\Users\Miguel\AppData\Local\Temp\surefire4276038393568106439 2025-05-28T18-12-43_182-jvmRun1 surefire-20250528181243392_1tmp surefire_0-20250528181243392_2tmp"/>
+=======
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
+    <property name="sun.java.command" value="C:\Users\ejuli\AppData\Local\Temp\surefire17312795195259349931\surefirebooter-20250528145551683_3.jar C:\Users\ejuli\AppData\Local\Temp\surefire17312795195259349931 2025-05-28T14-55-51_489-jvmRun1 surefire-20250528145551683_1tmp surefire_0-20250528145551683_2tmp"/>
+>>>>>>> a74fb1ab0db443951547a1d47b0bf8e9ad7b8fbe
     <property name="jdk.debug" value="release"/>
     <property name="test" value="edu.progavud.taller3.controller.ControlCarreraTest"/>
     <property name="surefire.test.class.path" value="D:\TALLERES\Taller3\target\test-classes;D:\TALLERES\Taller3\target\classes;C:\Users\Miguel\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.3\junit-jupiter-5.10.3.jar;C:\Users\Miguel\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\Miguel\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Miguel\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\Miguel\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Miguel\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\Miguel\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\Miguel\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;"/>
@@ -32,7 +41,11 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
+<<<<<<< HEAD
     <property name="surefire.real.class.path" value="C:\Users\Miguel\AppData\Local\Temp\surefire4276038393568106439\surefirebooter-20250528181243392_3.jar"/>
+=======
+    <property name="surefire.real.class.path" value="C:\Users\ejuli\AppData\Local\Temp\surefire17312795195259349931\surefirebooter-20250528145551683_3.jar"/>
+>>>>>>> a74fb1ab0db443951547a1d47b0bf8e9ad7b8fbe
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
@@ -61,6 +74,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
+<<<<<<< HEAD
   <testcase name="testDefinirGanadorAbsoluto" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="7.063"/>
   <testcase name="testDefinirGanadorUnico" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="5.148"/>
   <testcase name="testDefinirGanadorAbsolutoConEmpate" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="6.29"/>
@@ -68,4 +82,13 @@
   <testcase name="testAccidenteCompetidorFormato" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="9.693"/>
   <testcase name="testImpulsarCompetidorFormato" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="6.629"/>
   <testcase name="testDefinirGanadorConEmpate" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="8.156"/>
+=======
+  <testcase name="testDefinirGanadorAbsoluto" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="3.577"/>
+  <testcase name="testDefinirGanadorUnico" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="2.623"/>
+  <testcase name="testDefinirGanadorAbsolutoConEmpate" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="2.023"/>
+  <testcase name="testGetDistanciaCarrera" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="2.018"/>
+  <testcase name="testAccidenteCompetidorFormato" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="2.71"/>
+  <testcase name="testImpulsarCompetidorFormato" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="1.785"/>
+  <testcase name="testDefinirGanadorConEmpate" classname="edu.progavud.taller3.controller.ControlCarreraTest" time="2.006"/>
+>>>>>>> a74fb1ab0db443951547a1d47b0bf8e9ad7b8fbe
 </testsuite>
