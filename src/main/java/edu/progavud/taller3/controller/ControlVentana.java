@@ -55,10 +55,10 @@ public class ControlVentana implements ActionListener {
                 cCarrera.iniciarCarrera();
             });
         }
-        if (comando.equals("ACCIDENTE1")) {
+        if (comando.equals("ACCIDENTE")) {
             ((PanelCarrera) ventanaPrincipal.panelCanvas).lblInformacion.setText(cCarrera.accidenteCompetidor());
         }
-        if (comando.equals("IMPULSAR2")) {
+        if (comando.equals("IMPULSAR")) {
             ((PanelCarrera) ventanaPrincipal.panelCanvas).lblInformacion.setText(cCarrera.impulsarCompetidor());
         }
         if(comando.equals("SALIR")){
@@ -101,7 +101,7 @@ public class ControlVentana implements ActionListener {
      * a traves del metodo de PanelCarrera
      */
     public void crearImagenesCompetidores() {
-        ((PanelCarrera) ventanaPrincipal.panelCanvas).crearImagenCompetidor("Usain Bolt.png");
+        ((PanelCarrera) ventanaPrincipal.panelCanvas).crearImagenCompetidor("UsainBolt.gif");
         for (int i = 1; i < cCarrera.getNumeroCompetidores(); i++) {
             ((PanelCarrera) ventanaPrincipal.panelCanvas).crearImagenCompetidor("UdistritalinosoAeroplano.jpg");
         }

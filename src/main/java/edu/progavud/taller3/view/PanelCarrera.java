@@ -40,14 +40,10 @@ public class PanelCarrera extends javax.swing.JPanel {
         repaint();
     }
 
-    public void crearImagenCompetidor(String nombreImagen) {
-        ImageIcon originalIcon = new ImageIcon(getClass().getResource("/imagenes/" + nombreImagen));
+  public void crearImagenCompetidor(String nombreGif) {
+        ImageIcon gif = new ImageIcon(getClass().getResource("/imagenes/" + nombreGif));
 
-        Image scaledImage = originalIcon.getImage()
-                .getScaledInstance(150, 150, Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-        JLabel lblCompetidor = new javax.swing.JLabel(scaledIcon);
+        JLabel lblCompetidor = new javax.swing.JLabel(gif);
         lblsCompetidores.add(lblCompetidor);
     }
     /**
@@ -122,12 +118,12 @@ public class PanelCarrera extends javax.swing.JPanel {
 
         btnAccidente1.setBackground(new java.awt.Color(210, 120, 70));
         btnAccidente1.setForeground(new java.awt.Color(110, 70, 40));
-        btnAccidente1.setText("ACCIDENTE1");
+        btnAccidente1.setText("ACCIDENTE");
         PanelBotones.add(btnAccidente1);
 
         btnImpulsar2.setBackground(new java.awt.Color(210, 120, 70));
         btnImpulsar2.setForeground(new java.awt.Color(110, 70, 40));
-        btnImpulsar2.setText("IMPULSAR2");
+        btnImpulsar2.setText("IMPULSAR");
         PanelBotones.add(btnImpulsar2);
 
         btnSalir.setBackground(new java.awt.Color(210, 120, 70));
