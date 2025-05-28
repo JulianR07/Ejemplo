@@ -47,6 +47,15 @@ public class ControlVentana implements ActionListener {
                 cCarrera.iniciarCarrera();
             });
         }
+        if (comando.equals("ACCIDENTE1")) {
+            ((PanelCarrera) ventanaPrincipal.panelCanvas).lblInformacion.setText(cCarrera.accidenteCompetidor());
+        }
+        if (comando.equals("IMPULSAR2")) {
+            ((PanelCarrera) ventanaPrincipal.panelCanvas).lblInformacion.setText(cCarrera.impulsarCompetidor());
+        }
+        if(comando.equals("SALIR")){
+           cCarrera.cerrarPrograma();
+        }
     }
 
     public int mostrarDigiteNumCompetidores() {

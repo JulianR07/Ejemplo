@@ -137,4 +137,13 @@ public class ControlCarrera {
         return cVentana;
     }
 
+    public void cerrarPrograma() {
+        for (CompetidorHilo competidor : competidores) {
+            if (competidor.isAlive()) {
+                competidor.stop();
+            }
+        }
+        cVentana.mostrarMensaje(definirGanadorAbsoluto());
+        System.exit(0);
+    }
 }

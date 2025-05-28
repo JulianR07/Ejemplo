@@ -36,6 +36,7 @@ public class PanelFinal extends javax.swing.JPanel {
         btnNuevaCarrera.setBackground(new java.awt.Color(210, 120, 70));
         btnNuevaCarrera.setForeground(new java.awt.Color(110, 70, 40));
         btnNuevaCarrera.setText("NUEVACARRERA");
+        btnNuevaCarrera.setActionCommand("INICIARCARRERA");
         btnNuevaCarrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevaCarreraActionPerformed(evt);
