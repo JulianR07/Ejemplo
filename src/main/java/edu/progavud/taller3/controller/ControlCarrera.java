@@ -132,7 +132,7 @@ public class ControlCarrera {
                 mayorNumVictorias = competidor.getDatosCompetidor().getVictorias();
                 indexGanadores.clear();
                 indexGanadores.add(competidoresHilos.indexOf(competidor));
-            } else if (competidor.getDatosCompetidor().getTiempoDeLlegada() == mayorNumVictorias) {
+            } else if (competidor.getDatosCompetidor().getVictorias()== mayorNumVictorias) {
                 indexGanadores.add(competidoresHilos.indexOf(competidor));
             }
         }
