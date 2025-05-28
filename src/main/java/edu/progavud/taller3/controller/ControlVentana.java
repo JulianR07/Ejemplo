@@ -84,7 +84,7 @@ public class ControlVentana implements ActionListener {
     public void crearImagenesCompetidores() {
         ((PanelCarrera) ventanaPrincipal.panelCanvas).crearImagenCompetidor("Usain Bolt.png");
         for (int i = 1; i < cCarrera.getNumeroCompetidores(); i++) {
-            ((PanelCarrera) ventanaPrincipal.panelCanvas).crearImagenCompetidor("Periquin.png");
+            ((PanelCarrera) ventanaPrincipal.panelCanvas).crearImagenCompetidor("UdistritalinosoAeroplano.jpg");
         }
     }
 

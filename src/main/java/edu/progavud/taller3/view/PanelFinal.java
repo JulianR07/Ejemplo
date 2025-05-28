@@ -37,11 +37,6 @@ public class PanelFinal extends javax.swing.JPanel {
         btnNuevaCarrera.setForeground(new java.awt.Color(110, 70, 40));
         btnNuevaCarrera.setText("NUEVACARRERA");
         btnNuevaCarrera.setActionCommand("INICIARCARRERA");
-        btnNuevaCarrera.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevaCarreraActionPerformed(evt);
-            }
-        });
 
         btnSalir.setBackground(new java.awt.Color(210, 120, 70));
         btnSalir.setForeground(new java.awt.Color(110, 70, 40));
@@ -49,7 +44,7 @@ public class PanelFinal extends javax.swing.JPanel {
 
         txtaGanador.setColumns(20);
         txtaGanador.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        txtaGanador.setForeground(new java.awt.Color(110, 70, 40));
+        txtaGanador.setForeground(new java.awt.Color(250, 250, 250));
         txtaGanador.setRows(5);
         txtaGanador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(125, 200, 70), 2));
         txtaGanador.setFocusable(false);
@@ -87,10 +82,6 @@ public class PanelFinal extends javax.swing.JPanel {
                 .addGap(69, 69, 69))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnNuevaCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaCarreraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNuevaCarreraActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

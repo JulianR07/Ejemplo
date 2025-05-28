@@ -111,6 +111,7 @@ public class PanelCarrera extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(750, 429));
         setLayout(new java.awt.BorderLayout());
 
+        PanelBotones.setBackground(new java.awt.Color(15, 89, 45));
         PanelBotones.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 20));
 
         btnAccidente1.setText("ACCIDENTE1");
