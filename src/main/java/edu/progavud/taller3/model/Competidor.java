@@ -5,7 +5,7 @@ package edu.progavud.taller3.model;
  * @author Julian Roldan
  * @author Jose Cucanchon
  * @version 1.0
- * 
+ *
  * Clase que representa a un competidor del aplicativo
  */
 public class Competidor {
@@ -17,6 +17,7 @@ public class Competidor {
 
     /**
      * Constructor del Competidor, inicializa sus atributos
+     *
      * @param nombre Recibe el nombre ingresado por el usuario
      */
     public Competidor(String nombre) {
@@ -26,19 +27,21 @@ public class Competidor {
         victorias = 0;
     }
 
+    /**
+     * Actualiza la posicion actual del jugador
+     *
+     * @param distanciaMov Recibe la cantidad de distancia recorrida
+     */
+    public void mover(int distanciaMov) {
+        posicion += distanciaMov;
+    }
+
     public String getNombre() {
         return nombre;
     }
 
     public int getPosicion() {
         return posicion;
-    }
-    /**
-     * Actualiza la posicion actual del jugador
-     * @param distanciaMov Recibe la cantidad de distancia recorrida
-     */
-    public void mover(int distanciaMov) {
-        posicion += distanciaMov;
     }
 
     public void reiniciarPosicion() {

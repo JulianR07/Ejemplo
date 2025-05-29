@@ -39,7 +39,9 @@ public class ControlVentana implements ActionListener {
         ventanaPrincipal.cargarPanelInicio();
         nombreGifsCompetidores = new ArrayList<>();
     }
-    
+    /**
+     * Método que inicializa el fondo y los gifs de los jugadores
+     */
     public void definirRecursosCarrera() {
         mostrarMensaje("Escoja Donde se va a realizar la carrera (El fondo)");
         nombreImagenFondo = mostrarFileChooserImagen();
@@ -117,8 +119,8 @@ public class ControlVentana implements ActionListener {
     }
 
     /**
-     * Método que inicializa la imagen de los competidores a traves del metodo
-     * de PanelCarrera
+     * Método que inicializa los gifs de los competidores a traves
+     * de un JFileChooser
      */
     public void crearGifsCompetidores() {
         mostrarMensaje("Escoja el gif del Competidor Principal");
@@ -128,20 +130,20 @@ public class ControlVentana implements ActionListener {
             nombreGifsCompetidores.add(mostrarFileChooserGif());
         }
     }
-    
+    /**
+     * Carga los gifs almacenados en PanelCarrera
+     */
     public void cargarGifsCompetidores() {
-        for(String nombreGif : nombreGifsCompetidores) {
+        for (String nombreGif : nombreGifsCompetidores) {
             ((PanelCarrera) ventanaPrincipal.panelCanvas).crearGifCompetidor(nombreGif);
-        } 
+        }
     }
 
     /**
      * Método que envia los parametros de informacion al método de PanelCarrera
      *
-     * @param indexCompetidor Recibe el identificador del competidor que se va a
-     * mover
-     * @param cantidadAvanzada Recibe la cantidad de posiciones que se va a
-     * avanzar
+     * @param indexCompetidor Recibe el identificador del competidor que se va a mover
+     * @param cantidadAvanzada Recibe la cantidad de posiciones que se va a avanzar
      * @param distanciaCarrera Recibe la cantidad de distacia de la carrera
      */
     public void moverCompetidor(int indexCompetidor, int cantidadAvanzada, int distanciaCarrera) {
@@ -155,7 +157,11 @@ public class ControlVentana implements ActionListener {
     public void mostrarMensaje(String mensaje) {
         ventanaPrincipal.mostrarMensajeJOptionPane(mensaje);
     }
-
+    /**
+     * Método que valida si los gifs fueron seleccionados
+     * correctamente y si son validos
+     * @return Devuelve un string con la ruta del gif seleccionado
+     */
     public String mostrarFileChooserGif() {
         JFileChooser ventana = ventanaPrincipal.prepararFileChooserGifs();
         ventana.showOpenDialog(null);
@@ -169,7 +175,11 @@ public class ControlVentana implements ActionListener {
         }
         return ventana.getSelectedFile().getName();
     }
-
+    /**
+     * Método que valida si las imagenes fueron seleccionados
+     * correctamente y si son validos
+     * @return Devuelve un string con la ruta de la imagen seleccionado
+     */
     public String mostrarFileChooserImagen() {
         JFileChooser ventana = ventanaPrincipal.prepararFileChooserImagenes();
         ventana.showOpenDialog(null);

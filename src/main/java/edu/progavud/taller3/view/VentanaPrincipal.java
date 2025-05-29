@@ -95,13 +95,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public void mostrarMensajeJOptionPane(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje);
     }
-    
+    /**
+     * Método que genera un JFileChooser ya en una ruta especifica,
+     * con el fin de que el usuario no se pierda entre todos los archivos
+     * @return Devuelve el JFileChooser
+     */
     public JFileChooser prepararFileChooserGifs() {
         JFileChooser fileChooser = new JFileChooser("src/main/resources/Imagenes/GifsCompetidores");
         fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos Gif", "gif")); //para que solo se vean archivos gif
         return fileChooser;
     }
-    
+    /**
+     * Método que genera un JFileChooser ya en una ruta especifica,
+     * con el fin de que el usuario no se pierda entre todos los archivos
+     * @return Devuelve el JFileChooser
+     */
     public JFileChooser prepararFileChooserImagenes() {
         JFileChooser fileChooser = new JFileChooser("src/main/resources/Imagenes/Fondos");
         fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos de Imagen (JPG, PNG)", "jpg", "png")); //para que solo se vean archivos de imagen

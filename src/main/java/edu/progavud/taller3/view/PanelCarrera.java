@@ -11,15 +11,15 @@ import javax.swing.SwingUtilities;
  * @author Julian Roldan
  * @author Jose Cucanchon
  * @version 1.0
- * 
+ *
  * Clase donde se visualiza la carrera durante la ejecucion del aplicativo
  */
 public class PanelCarrera extends javax.swing.JPanel {
 
     /**
-     * Constructor del PanelCarrera, inicializa sus atributos
-     * modifica el tamaño del panel en funcion de la cantidad de competidores
-     * y carga la imagen del fondo
+     * Constructor del PanelCarrera, inicializa sus atributos modifica el tamaño
+     * del panel en funcion de la cantidad de competidores y carga la imagen del
+     * fondo
      */
     public PanelCarrera(int numCorredores, String urlImagenFondo) {
         initComponents();
@@ -27,7 +27,7 @@ public class PanelCarrera extends javax.swing.JPanel {
         lblsCompetidores = new ArrayList<>();
         cargarImagenFondo(urlImagenFondo);
     }
-    
+
     public void cargarImagenFondo(String urlImagenFondo) {
         ImageIcon originalIcon = new ImageIcon(getClass().getResource("/imagenes/Fondos/" + urlImagenFondo));
 
@@ -39,17 +39,23 @@ public class PanelCarrera extends javax.swing.JPanel {
         lblImagen.setBounds(0, 0, 1000, getSize().height - 100);
         repaint();
     }
-
-  public void crearGifCompetidor(String nombreGif) {
+    /**
+     * Metodo que carga el gif en un label
+     * y a su vez este carga el Label al panelCarrera
+     * 
+     * @param nombreGif Recibe un parametro con el nombre de lau
+     */
+    public void crearGifCompetidor(String nombreGif) {
         ImageIcon gif = new ImageIcon(getClass().getResource("/imagenes/GifsCompetidores/" + nombreGif));
 
         JLabel lblCompetidor = new javax.swing.JLabel(gif);
         lblsCompetidores.add(lblCompetidor);
     }
+
     /**
-     * Método que va agregando competidores al LayeredPane,
-     * este los va colocando uno debajo del otro aprovechando que
-     * cada imagen tiene un tamaño ya definido
+     * Método que va agregando competidores al LayeredPane, este los va
+     * colocando uno debajo del otro aprovechando que cada imagen tiene un
+     * tamaño ya definido
      */
     public void colocarCompetidores() {
         int nextY = getHeight() - 250;
@@ -61,10 +67,14 @@ public class PanelCarrera extends javax.swing.JPanel {
         revalidate();
         repaint();
     }
+
     /**
      * Metodo que permite reposicionar los Labels simulando el movimiento
-     * @param indexCompetidor Recibe el identificador del competidor que va a moverse
-     * @param posicionesAvanzadas Recibe la cantidad de posiciones que el competidor se va a desplazar
+     *
+     * @param indexCompetidor Recibe el identificador del competidor que va a
+     * moverse
+     * @param posicionesAvanzadas Recibe la cantidad de posiciones que el
+     * competidor se va a desplazar
      * @param distanciaCarrera Recibe la distancia total de la carrera
      */
     public void moverCompetidor(int indexCompetidor, int posicionesAvanzadas, int distanciaCarrera) {
