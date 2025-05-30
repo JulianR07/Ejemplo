@@ -3,6 +3,8 @@ package edu.progavud.taller3.controller;
 import edu.progavud.taller3.model.Competidor;
 import java.util.Random;
 import java.util.concurrent.locks.LockSupport;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Jorge Mendez
@@ -18,6 +20,7 @@ public class CompetidorHilo extends Thread {
     private Competidor competidor;
     private ControlCarrera cCarrera;
     private boolean isPausado;
+    private boolean isAccidentado;
     private Random rng;
 
     /**
@@ -32,6 +35,7 @@ public class CompetidorHilo extends Thread {
         this.competidor = competidor;
         rng = new Random();
         isPausado = false;
+        isAccidentado = false;
     }
 
     /**
@@ -47,15 +51,21 @@ public class CompetidorHilo extends Thread {
         while (competidor.getPosicion() < cCarrera.getDistanciaCarrera()) {
             if (isPausado) {
                 LockSupport.park();
+            } else if (isAccidentado) {
+                try {
+                    sleep(rng.nextInt(400, 1200)); //casi no se nota :(
+                } catch (InterruptedException ex) { //este catch solo se llega si interrumpimos el hilo, cosa la cual no pasa
+                } finally {
+                    isAccidentado = false;
+                }
             }
             competidor.mover(1);
             cCarrera.moverCompetidorLabel(this, 1);
             try {
                 sleep(rng.nextInt(0, 250));
             } catch (InterruptedException ex) {
-                cCarrera.getcVentana().mostrarMensaje("Error: Hilo Interrumpido");
+                cCarrera.getcVentana().mostrarMensaje("Error: Hilo Ya Interrumpido");
             }
-            // todavia no lo quité por si depronto te sirve :3 System.out.println("El competidor: " + competidor.getNombre() + " Se ha movido, su pos actual es: " + competidor.getPosicion());
         }
         competidor.setTiempoDeLlegada(System.currentTimeMillis() - tiempoInicio);
     }
@@ -64,11 +74,7 @@ public class CompetidorHilo extends Thread {
      * Método que duerme un hilo aleatorio una cantidad aleatoria de tiempo
      */
     public void accidente() {
-        try {
-            sleep(rng.nextInt(0, 250));
-        } catch (InterruptedException ex) {
-            cCarrera.getcVentana().mostrarMensaje("Soy el metodo accidente, algo paso");
-        }
+        isAccidentado = true;
     }
 
     /**

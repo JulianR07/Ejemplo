@@ -79,14 +79,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * @return Devuelve un String que será casteado como un int eventualmente
      */
     public String mostrarDigiteNumCompetidores() {
-        return JOptionPane.showInputDialog(null, "Digite el numero Udistritalinosos que van a competir: ", JOptionPane.DEFAULT_OPTION);
+        return JOptionPane.showInputDialog(null, "Digite el numero Udistritalinosos que van a competir: ");
     }
     /**
      * Muestra un input dialog con el fin de ingresar el nombre de los competidores
      * @return Devuelve un String que contiene el nombrede los competidores
      */
     public String mostrarDigiteNomCompetidor() {
-        return JOptionPane.showInputDialog(null, "Digite el nombre del Udistritalinoso que va a competir: ", JOptionPane.DEFAULT_OPTION);
+        return JOptionPane.showInputDialog(null, "Digite el nombre del Udistritalinoso que va a competir: ");
     }
     /**
      * Muestra un message dialog para hacerle saber al usuario de cualquier situacion
