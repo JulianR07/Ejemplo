@@ -73,10 +73,20 @@ public class ControlVentana implements ActionListener {
             });
         }
         if (comando.equals("ACCIDENTE")) {
-            ((PanelCarrera) ventanaPrincipal.panelCanvas).lblInformacion.setText(cCarrera.accidenteCompetidor());
+            if(!(ventanaPrincipal.panelCanvas instanceof PanelCarrera)) {
+                return;
+            } else {
+                ((PanelCarrera) ventanaPrincipal.panelCanvas).lblInformacion.setText(cCarrera.accidenteCompetidor());
+            }
+            
         }
         if (comando.equals("IMPULSAR")) {
-            ((PanelCarrera) ventanaPrincipal.panelCanvas).lblInformacion.setText(cCarrera.impulsarCompetidor());
+            if(!(ventanaPrincipal.panelCanvas instanceof PanelCarrera)) {
+                return;
+            } else{
+                ((PanelCarrera) ventanaPrincipal.panelCanvas).lblInformacion.setText(cCarrera.impulsarCompetidor());
+            }
+            
         }
         if (comando.equals("SALIR")) {
             cCarrera.cerrarPrograma();
@@ -188,7 +198,7 @@ public class ControlVentana implements ActionListener {
             if (mostrarMensajeIntentarOtraVez("¿Desea intentarlo otra vez?")) {
                 return mostrarFileChooserImagen();
             } else {
-                return "fondoPorDefecto.jpg";
+                return "fondoPorDefecto.png";
             }
         }
         return ventana.getSelectedFile().getName();
