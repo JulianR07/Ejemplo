@@ -1,28 +1,39 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package edu.progavud.taller3.controller;
 
 import edu.progavud.taller3.model.Competidor;
 import java.util.ArrayList;
 
 /**
- *
- * @author Miguel
+ * @author Jorge Mendez
+ * @author Julian Roldan
+ * @author Jose Cucanchon
+ * @version 1.0
+ * 
+ * Clase encargada de gestionar a los competidores
  */
 public class ControlCompetidor {
 
     private ControlCarrera cCarrera;
     private ArrayList<Competidor> competidores;
-    private int numeroCompetidores;
+    private int numCompetidores;
 
-    public ControlCompetidor(ControlCarrera cCarrera, int numeroCompetidores) {
+    /**
+     * Constructor de la clase ControlCompetidor
+     * @param cCarrera Recibe el parametro que permite la comunicacion con
+     * ControlCarrera
+     * @param numCompetidores Recibe la cantidad de competidores
+     * seleccionada por el usuario al inicio
+     */
+    public ControlCompetidor(ControlCarrera cCarrera, int numCompetidores) {
         this.cCarrera = cCarrera;
         competidores = new ArrayList<>();
-        this.numeroCompetidores = 1 + numeroCompetidores; //Siempre debe estar minimo usain bolt;
+        this.numCompetidores = 1 + numCompetidores; //Siempre debe estar minimo usain bolt;
     }
-
+    /**
+     * Método que crea un objeto competidor con su nombre y lo agrega
+     * a un ArrayList de Competidores
+     * @param nombre 
+     */
     public void crearCompetidor(String nombre) {
         Competidor nuevoCompetidor = new Competidor(nombre);
         competidores.add(nuevoCompetidor);
@@ -62,9 +73,15 @@ public class ControlCompetidor {
         }
         return mensaje;
     }
-
+    /**
+     * Metodo que aparece al terminar la ejecucion del programa, este
+     * calcula a partir del numero de victorias el ganador absoluto de las
+     * carreras
+     * @return Devuelve la informacion con las victorias individuales, el 
+     * ganador absoluto ó un mensaje en caso de empate
+     */
     public String definirGanadorAbsoluto() {
-        String mensajeVictoriasCompetidor = ""; //esta es la primera parte del mensaje 😄
+        String mensajeVictoriasCompetidor = ""; //esta es la primera parte del mensaje
         ArrayList<Integer> indexGanadores = new ArrayList<>();
         int mayorNumVictorias = 0;
         for (Competidor competidor : competidores) {
@@ -90,7 +107,7 @@ public class ControlCompetidor {
     }
 
     public int getNumeroCompetidores() {
-        return numeroCompetidores;
+        return numCompetidores;
     }
 
     public Competidor getCompetidor(int indexCompetidor) {
