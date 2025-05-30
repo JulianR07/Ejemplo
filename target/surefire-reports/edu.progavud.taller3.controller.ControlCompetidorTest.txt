@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: edu.progavud.taller3.controller.ControlCompetidorTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 85.607 s - in edu.progavud.taller3.controller.ControlCompetidorTest
