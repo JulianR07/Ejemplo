@@ -58,8 +58,7 @@ public class PanelFinal extends javax.swing.JPanel {
         txtaGanador.setFocusable(false);
         txtaGanador.setOpaque(false);
 
-        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/UdistritalinosoGanador.jpg"))); // NOI18N
-        lblImagen.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/UdistritalinosoGanador.png"))); // NOI18N
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Aves.jpg"))); // NOI18N
 
